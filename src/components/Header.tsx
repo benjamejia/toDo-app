@@ -2,7 +2,15 @@ import { useState } from "react"
 
 export function Header(){
     const[isOpen,setIsOpen] = useState(false)
+    const[dashboardOpen, setDashBoardOpen] = useState(false)
+    const[todoListOpen,setTodoListOpen] = useState(false)
+    const handleDashBoardOpen = () => {
+        setDashBoardOpen(!dashboardOpen)
+    }
 
+    const handleToDoListOpen = () => {
+        setTodoListOpen(!todoListOpen)
+    }
     const handleClickIsOpen = () =>{
         setIsOpen(!isOpen)
     }
@@ -15,12 +23,12 @@ export function Header(){
                 =
             </button>
             { isOpen &&
-                <button className="text-2xl font-serif rounded-2xl h-10 mt-4.5 ml-20 pl-4 pr-4 hover:bg-pink-200/30">
+                <button onClick={handleDashBoardOpen} className="text-2xl font-serif rounded-2xl h-10 mt-4.5 ml-20 pl-4 pr-4 hover:bg-pink-200/30">
                 Dashboard
                 </button>
             }
             { isOpen &&
-                <button className="text-2xl font-serif rounded-2xl h-10 mt-4.5 pl-4 pr-4 hover:bg-blue-200/30">
+                <button onClick={handleToDoListOpen} className="text-2xl font-serif rounded-2xl h-10 mt-4.5 pl-4 pr-4 hover:bg-blue-200/30">
                     To-Do list
                 </button>
             }
